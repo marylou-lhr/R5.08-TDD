@@ -50,4 +50,16 @@ public class PersonnageTest {
         assertThat(resultat).isEqualTo(resultAttendu);
     }
 
+    @Test
+    void devrait_retourner_une_exception() {
+        //GIVEN
+        int nbFois = -1;
+        String resultAttendu = "Une valeur négative n'est pas autorisée.";
+
+        //WHEN
+        String resultat = personnage.tourner(nbFois);
+
+        //THEN
+        assertThat(resultat).isEqualTo(resultAttendu);
+    }
 }

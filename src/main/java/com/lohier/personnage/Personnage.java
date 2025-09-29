@@ -15,15 +15,22 @@ public class Personnage {
 
         String tourner(int pNbFois)
         {
-            ArrayList<String> orientations = new ArrayList<>();
+            if (pNbFois >= 0)
+            {
+                ArrayList<String> orientations = new ArrayList<>();
 
-            orientations.add("NORD");
-            orientations.add("EST");
-            orientations.add("SUD");
-            orientations.add("OUEST");
+                orientations.add("NORD");
+                orientations.add("EST");
+                orientations.add("SUD");
+                orientations.add("OUEST");
 
-            pNbFois = pNbFois % 4;
+                pNbFois = pNbFois % 4;
 
-            return orientations.get(pNbFois);
+                return orientations.get(pNbFois);
+            }
+            else
+            {
+                return "Une valeur négative n'est pas autorisée.";
+            }
         }
 }
