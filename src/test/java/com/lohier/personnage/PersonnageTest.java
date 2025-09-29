@@ -36,4 +36,18 @@ public class PersonnageTest {
         assertThat(resultat).isEqualTo(resultAttendu);
     }
 
+    @Test
+    void devrait_retourner_orientation_inchangee()
+    {
+        //GIVEN
+        int nbFois = 0;
+        String resultAttendu = personnage.getOrientation();
+
+        //WHEN
+        String resultat = personnage.tourner(nbFois);
+
+        //THEN
+        assertThat(resultat).isEqualTo(resultAttendu);
+    }
+
 }

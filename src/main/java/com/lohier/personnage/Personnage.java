@@ -3,8 +3,16 @@ package com.lohier.personnage;
 import java.util.ArrayList;
 
 public class Personnage {
+    private
+        String orientation = "NORD";
 
     public
+        String getOrientation() { return orientation; }
+        void setOrientation(String newOrientation)
+        {
+            orientation = newOrientation;
+        }
+
         String tourner(int pNbFois)
         {
             ArrayList<String> orientations = new ArrayList<>();
@@ -13,6 +21,8 @@ public class Personnage {
             orientations.add("EST");
             orientations.add("SUD");
             orientations.add("OUEST");
+
+            pNbFois = pNbFois % 4;
 
             return orientations.get(pNbFois);
         }
