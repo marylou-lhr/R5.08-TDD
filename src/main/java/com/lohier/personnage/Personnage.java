@@ -8,6 +8,7 @@ public class Personnage {
 
     public
         String getOrientation() { return orientation; }
+
         void setOrientation(String newOrientation)
         {
             orientation = newOrientation;

@@ -62,4 +62,19 @@ public class PersonnageTest {
         //THEN
         assertThat(resultat).isEqualTo(resultAttendu);
     }
+
+    @Test
+    void devrait_retourner_SUD()
+    {
+        //GIVEN
+        personnage.setOrientation("EST");
+        int nbFois = 1;
+        String resultAttendu = "SUD";
+
+        //WHEN
+        String resultat = personnage.tourner(nbFois);
+
+        //THEN
+        assertThat(resultat).isEqualTo(resultAttendu);
+    }
 }
