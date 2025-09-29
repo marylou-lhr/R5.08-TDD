@@ -48,7 +48,7 @@ public class PersonnageTest {
     }
 
     @Test
-    void devrait_retourner_une_exception() throws Exception {
+    void devrait_retourner_une_exception_pour_val_negative() throws Exception {
         //GIVEN
         int nbFois = -1;
         String resultAttendu = "Une valeur négative n'est pas autorisée.";
@@ -80,6 +80,20 @@ public class PersonnageTest {
         personnage.setOrientation("EST");
         int nbFois = 4;
         String resultAttendu = personnage.getOrientation();
+
+        //WHEN
+        String resultat = personnage.tourner(nbFois);
+
+        //THEN
+        assertThat(resultat).isEqualTo(resultAttendu);
+    }
+
+    @Test
+    void devrait_retourner_une_exception_pour_orient_invalide() throws Exception {
+        //GIVEN
+        personnage.setOrientation("abc");
+        int nbFois = 4;
+        String resultAttendu = "Orientation invalide";
 
         //WHEN
         String resultat = personnage.tourner(nbFois);

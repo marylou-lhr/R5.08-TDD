@@ -38,7 +38,7 @@ public class Personnage {
                         pNbFois = pNbFois + 3;
                         break;
                     default:
-                        throw new Exception("Orientation invalide");
+                        return "Orientation invalide";
                 }
 
                 pNbFois = pNbFois % 4;
