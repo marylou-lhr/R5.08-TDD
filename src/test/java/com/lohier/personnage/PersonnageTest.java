@@ -9,8 +9,7 @@ public class PersonnageTest {
     Personnage personnage = new Personnage();
 
     @Test
-    void devrait_retourner_EST()
-    {
+    void devrait_retourner_EST() throws Exception {
         //GIVEN
         int nbFois = 3;
         String resultAttendu = "OUEST";
@@ -23,8 +22,7 @@ public class PersonnageTest {
     }
 
     @Test
-    void devrait_retourner_NORD()
-    {
+    void devrait_retourner_NORD() throws Exception {
         //GIVEN
         int nbFois = 4;
         String resultAttendu = "NORD";
@@ -37,8 +35,7 @@ public class PersonnageTest {
     }
 
     @Test
-    void devrait_retourner_orientation_inchangee()
-    {
+    void devrait_retourner_orientation_inchangee() throws Exception {
         //GIVEN
         int nbFois = 0;
         String resultAttendu = personnage.getOrientation();
@@ -51,7 +48,7 @@ public class PersonnageTest {
     }
 
     @Test
-    void devrait_retourner_une_exception() {
+    void devrait_retourner_une_exception() throws Exception {
         //GIVEN
         int nbFois = -1;
         String resultAttendu = "Une valeur négative n'est pas autorisée.";
@@ -64,12 +61,25 @@ public class PersonnageTest {
     }
 
     @Test
-    void devrait_retourner_SUD()
-    {
+    void devrait_retourner_SUD() throws Exception {
         //GIVEN
         personnage.setOrientation("EST");
         int nbFois = 1;
         String resultAttendu = "SUD";
+
+        //WHEN
+        String resultat = personnage.tourner(nbFois);
+
+        //THEN
+        assertThat(resultat).isEqualTo(resultAttendu);
+    }
+
+    @Test
+    void devrait_retourner_orientation_inchangee_EST() throws Exception {
+        //GIVEN
+        personnage.setOrientation("EST");
+        int nbFois = 4;
+        String resultAttendu = personnage.getOrientation();
 
         //WHEN
         String resultat = personnage.tourner(nbFois);

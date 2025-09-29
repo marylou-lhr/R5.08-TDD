@@ -14,8 +14,7 @@ public class Personnage {
             orientation = newOrientation;
         }
 
-        String tourner(int pNbFois)
-        {
+        String tourner(int pNbFois) throws Exception {
             if (pNbFois >= 0)
             {
                 ArrayList<String> orientations = new ArrayList<>();
@@ -24,6 +23,23 @@ public class Personnage {
                 orientations.add("EST");
                 orientations.add("SUD");
                 orientations.add("OUEST");
+
+                switch (orientation)
+                {
+                    case "NORD":
+                        break;
+                    case "EST":
+                        pNbFois = pNbFois + 1;
+                        break;
+                    case "SUD":
+                        pNbFois = pNbFois + 2;
+                        break;
+                    case "OUEST":
+                        pNbFois = pNbFois + 3;
+                        break;
+                    default:
+                        throw new Exception("Orientation invalide");
+                }
 
                 pNbFois = pNbFois % 4;
 
