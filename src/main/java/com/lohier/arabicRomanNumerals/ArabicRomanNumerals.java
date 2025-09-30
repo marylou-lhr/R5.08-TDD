@@ -1,13 +1,16 @@
 package com.lohier.arabicRomanNumerals;
 
 public class ArabicRomanNumerals {
-    private
-        int m_nb;
 
     public
         String convert(int pNb)
         {
             StringBuilder num_romains = new StringBuilder();
+
+            if (pNb <= 0 || pNb > 50)
+            {
+                return "Erreur : Le nombre entré doit être entre 1 et 50.";
+            }
 
             if (pNb - 50 == 0)
             {
@@ -41,7 +44,6 @@ public class ArabicRomanNumerals {
             if (pNb == 4)
             {
                 num_romains.append("IV");
-                pNb -= 4;
             }
             else
             {

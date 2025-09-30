@@ -1,6 +1,5 @@
 package com.lohier.arabicRomanNumerals;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -21,25 +20,15 @@ public class ArabicRomanNumeralsTest {
         assertThat(resultat).isEqualTo(resultAttendu);
     }
 
-    //@ParameterizedTest(name = "Test cas exception #{index} - {0} => Erreur")
-    //@CsvSource({"0, Erreur : Le nombre entré doit être entre 1 et 50.", "-1, Erreur : Le nombre entré doit être entre 1 et 50.", "51, Erreur : Le nombre entré doit être entre 1 et 50."})
-    @Test
-    void devrait_retourner_une_erreur()
+    @ParameterizedTest(name = "Test cas exception #{index} - {0} => Erreur")
+    @CsvSource({"0, Erreur : Le nombre entré doit être entre 1 et 50.", "-1, Erreur : Le nombre entré doit être entre 1 et 50.", "51, Erreur : Le nombre entré doit être entre 1 et 50."})
+    void devrait_retourner_une_erreur(int pNb, String resultAttendu)
     {
-        //GIVEN
-        int nb1 = 0;
-        int nb2 = -1;
-        int nb3 = 51;
-        String resultAttendu = "";
 
         //WHEN
-        String result1 = arabicRomanNumerals.convert(nb1);
-        String result2 = arabicRomanNumerals.convert(nb2);
-        String result3 = arabicRomanNumerals.convert(nb3);
+        String result = arabicRomanNumerals.convert(pNb);
 
         //THEN
-        assertThat(result1).isEqualTo(resultAttendu);
-        assertThat(result2).isEqualTo(resultAttendu);
-        assertThat(result3).isEqualTo(resultAttendu);
+        assertThat(result).isEqualTo(resultAttendu);
     }
 }
