@@ -11,7 +11,15 @@ public class ArabicRomanNumerals {
 
             if (pNb - 50 == 0)
             {
-                num_romains = new StringBuilder("L");
+                num_romains.append("L");
+
+                pNb -= 50;
+            }
+            if (pNb == 49)
+            {
+                num_romains.append("IL");
+
+                pNb -= 49;
             }
             while (pNb - 10 >= 0)
             {
@@ -33,12 +41,16 @@ public class ArabicRomanNumerals {
             if (pNb == 4)
             {
                 num_romains.append("IV");
+                pNb -= 4;
             }
-            while (pNb - 1 >= 0)
+            else
             {
-                num_romains.append("I");
+                while (pNb - 1 >= 0)
+                {
+                    num_romains.append("I");
 
-                pNb--;
+                    pNb--;
+                }
             }
 
             return num_romains.toString();
